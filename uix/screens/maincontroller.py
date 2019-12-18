@@ -1,5 +1,6 @@
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 from uix.screens import welcomescreen, signinscreen, signupscreen, homescreen, resetpassword, guestscreen
 
@@ -25,6 +26,13 @@ class ScreenManage(ScreenManager):
         self.add_widget(logi_sc)
         self.add_widget(home_sc)
         self.add_widget(guest_sc)
+
+
+class NavigationBar(BoxLayout):
+
+    def __init__(self, **kwargs):
+        super(NavigationBar, self).__init__(**kwargs)
+        self.orientation = 'horizontal'
 
 
 class MainControl(FloatLayout):
