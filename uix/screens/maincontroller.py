@@ -1,9 +1,4 @@
-import os
-import hashlib
-import binascii
 from kivy.lang import Builder
-from pymongo import MongoClient
-from bson.objectid import ObjectId
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 from uix.screens import welcomescreen, signinscreen, signupscreen, homescreen, resetpassword, guestscreen
@@ -23,7 +18,6 @@ class ScreenManage(ScreenManager):
         home_sc = homescreen.HomeScreen(name="Home")
         reset_sc = resetpassword.ResetScreen(name="Reset")
         guest_sc = guestscreen.GuestScreen(name="Guest")
-        # survey_sc = surveyscreen.SurveyScreen(name="Survey")
 
         self.add_widget(welc_sc)
         self.add_widget(sign_sc)
@@ -31,8 +25,6 @@ class ScreenManage(ScreenManager):
         self.add_widget(logi_sc)
         self.add_widget(home_sc)
         self.add_widget(guest_sc)
-        # self.add_widget(account_sc)
-        # self.add_widget(survey_sc)
 
 
 class MainControl(FloatLayout):
