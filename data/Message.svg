@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="44"
+   height="40"
+   viewBox="0 0 44 40"
+   version="1.1"
+   id="svg7"
+   sodipodi:docname="Message.svg"
+   inkscape:version="0.92.4 (unknown)">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="960"
+     inkscape:window-height="1025"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="5.9"
+     inkscape:cx="22"
+     inkscape:cy="20"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg7" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path
+     id="Message"
+     class="cls-1"
+     d="M467,2134a6,6,0,0,1,6,6v16a6,6,0,0,1-6,6H448.75l-6.75,6v-6h-1a6,6,0,0,1-6-6v-16a6,6,0,0,1,6-6h26m0-3H441a9.012,9.012,0,0,0-9,9v16a9.024,9.024,0,0,0,7,8.78V2168a3.012,3.012,0,0,0,1.771,2.74A3.109,3.109,0,0,0,442,2171a2.99,2.99,0,0,0,1.994-.76l5.9-5.24H467a9.012,9.012,0,0,0,9-9v-16a9.012,9.012,0,0,0-9-9h0Zm-11.5,17a1.5,1.5,0,1,1-1.5-1.5A1.5,1.5,0,0,1,455.5,2148Zm10,0a1.5,1.5,0,1,1-1.5-1.5A1.5,1.5,0,0,1,465.5,2148Zm-19.875,0a1.5,1.5,0,1,1-1.5-1.5A1.5,1.5,0,0,1,445.625,2148Z"
+     transform="translate(-432 -2131)"
+     style="fill:#227093;fill-opacity:1" />
+</svg>
