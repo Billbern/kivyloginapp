@@ -1,9 +1,10 @@
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.behaviors import ButtonBehavior
 from kivy.graphics import Color, Rectangle
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
-from uix.screens import welcomescreen, signinscreen, signupscreen, homescreen, resetpassword, guestscreen
+from uix.screens import welcomescreen, signinscreen, signupscreen, homescreen, resetpassword, guestscreen,\
+    accountscreen, informationscreen, locatescreen
 
 
 class ScreenManage(ScreenManager):
@@ -13,19 +14,25 @@ class ScreenManage(ScreenManager):
         super(ScreenManage, self).__init__(**kwargs)
         self.transition = FadeTransition()
 
-        sign_sc = signupscreen.SignupScreen(name="Signup")
-        logi_sc = signinscreen.SigninScreen(name="Signin")
         welc_sc = welcomescreen.WelcomeScreen(name="Welcome")
+        logi_sc = signinscreen.SigninScreen(name="Signin")
+        sign_sc = signupscreen.SignupScreen(name="Signup")
         home_sc = homescreen.HomeScreen(name="Home")
         reset_sc = resetpassword.ResetScreen(name="Reset")
         guest_sc = guestscreen.GuestScreen(name="Guest")
+        account_sc = accountscreen.AccountScreen(name="User")
+        info_sc = informationscreen.InformScreen(name="Tips")
+        locate_sc = locatescreen.LocateScreen(name="Location")
 
         self.add_widget(welc_sc)
+        self.add_widget(logi_sc)
         self.add_widget(sign_sc)
         self.add_widget(reset_sc)
-        self.add_widget(logi_sc)
-        self.add_widget(home_sc)
         self.add_widget(guest_sc)
+        self.add_widget(home_sc)
+        self.add_widget(account_sc)
+        self.add_widget(info_sc)
+        self.add_widget(locate_sc)
 
 
 class NavigationBar(FloatLayout):
@@ -51,9 +58,9 @@ class MainControl(FloatLayout):
     NavigationBar:
         id: navbar
         size_hint: None, None
-        pos: ('0dp', '0dp' if screenmanage.current is 'Home' else  '-56dp')
+        pos: ('0dp', '0dp' if screenmanage.current in ['Home', 'User', 'Tips', 'Location'] else  '-56dp')
         width: '360dp'
-        height: '56dp' if screenmanage.current is 'Home' else '-56dp'
+        height: '56dp' if screenmanage.current in ['Home', 'User', 'Tips', 'Location'] else '-56dp'
         canvas:
             Color:
                 rgb: utils.get_color_from_hex("#f5f5f5")
@@ -62,29 +69,35 @@ class MainControl(FloatLayout):
                 pos: self.pos
         
         ThemedImageButton:
-            source: "./data/menub.png"
+            source: "./data/menu.png" if screenmanage.current != "Menu" else "./data/menub.png"
             pos: '24dp', '16dp'
+            # on_release: screenmanage.current = "Menu"
         
         ThemedImageButton:
-            source: "./data/userb.png"
+            source: "./data/user.png" if screenmanage.current != "User" else "./data/userb.png"
             pos: '96dp', '16dp'
+            on_release: screenmanage.current = "User"
         
         ThemedImageButton:
-            source: "./data/chatb.png"
-            pos: '166dp', '14dp'
+            text: "chat"
+            source: "./data/chat.png" if screenmanage.current != "Home" else "./data/chatb.png"
+            pos: '168dp', '16dp'
+            on_release: screenmanage.current = "Home"
         
         ThemedImageButton:
-            source: "./data/tipsb.png"
+            source: "./data/tips.png" if screenmanage.current != "Tips" else "./data/tipsb.png"
             pos: '240dp', '16dp'
+            on_release: screenmanage.current = "Tips"
         
         ThemedImageButton:
-            source: "./data/locationb.png"
+            source: "./data/location.png" if screenmanage.current != "Location" else "./data/locationb.png"
             pos: '312dp', '16dp'
+            on_release: screenmanage.current = "Location"
     
     ScreenManage:
         id: screenmanage
         size_hint: None, None
-        pos: ('0dp', '56dp') if self.current is 'Home' else ('0dp', '0dp')
+        pos: ('0dp', '56dp') if self.current in ['Home', 'User', 'Tips', 'Location'] else ('0dp', '0dp')
         width: '360dp'
-        height: '640dp'  # if self.current is 'Home' else '640dp'
+        height: '640dp'
     """)

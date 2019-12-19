@@ -3,19 +3,18 @@ from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 
 
-class HomeScreen(Screen):
+class LocateScreen(Screen):
     isShownMenu = BooleanProperty(False)
 
     def __init__(self, name, **kwargs):
-        super(HomeScreen, self).__init__(**kwargs)
+        super(LocateScreen, self).__init__(**kwargs)
         self.name = name
 
     Builder.load_string("""
 #:import utils kivy.utils
+#:import Mapview kivy.garden.mapview
 
-<HomeScreen>:
-    # kree: btn
-    
+<LocateScreen>:
     FloatLayout:
         pos: ("-178dp" if root.isShownMenu else "0dp", "0dp") 
         size_hint: None, None
@@ -27,7 +26,10 @@ class HomeScreen(Screen):
             Rectangle:
                 size: self.size
                 pos: self.pos
+        
+        MapView:
+            pos: '0dp', '56dp'
+            zoom: 11
+            lat: 50.6394
+            lon: 3.057
     """)
-
-
-

@@ -3,19 +3,17 @@ from kivy.uix.screenmanager import Screen
 from kivy.lang import Builder
 
 
-class HomeScreen(Screen):
+class InformScreen(Screen):
     isShownMenu = BooleanProperty(False)
 
     def __init__(self, name, **kwargs):
-        super(HomeScreen, self).__init__(**kwargs)
+        super(InformScreen, self).__init__(**kwargs)
         self.name = name
 
     Builder.load_string("""
 #:import utils kivy.utils
 
-<HomeScreen>:
-    # kree: btn
-    
+<InformScreen>:
     FloatLayout:
         pos: ("-178dp" if root.isShownMenu else "0dp", "0dp") 
         size_hint: None, None
@@ -28,6 +26,3 @@ class HomeScreen(Screen):
                 size: self.size
                 pos: self.pos
     """)
-
-
-
