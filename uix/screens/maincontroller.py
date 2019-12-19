@@ -12,7 +12,6 @@ class ScreenManage(ScreenManager):
     def __init__(self, **kwargs):
         super(ScreenManage, self).__init__(**kwargs)
         self.transition = FadeTransition()
-        self.pos_hint = {'top': 1, 'left': 1}
 
         sign_sc = signupscreen.SignupScreen(name="Signup")
         logi_sc = signinscreen.SigninScreen(name="Signin")
@@ -49,46 +48,43 @@ class MainControl(FloatLayout):
 
     Builder.load_string("""
 <MainControl>:
-    ScreenManage:
-        id: screenmanage
-        size_hint: None, None
-        pos: '0dp', '584dp'
-        width: '360dp'
-        height: '584dp'
-    
     NavigationBar:
         id: navbar
         size_hint: None, None
-        pos: '0dp', '0dp'
+        pos: ('0dp', '0dp' if screenmanage.current is 'Home' else  '-56dp')
         width: '360dp'
-        height: '56dp'
+        height: '56dp' if screenmanage.current is 'Home' else '-56dp'
         canvas:
             Color:
-                rgb: utils.get_color_from_hex("#ffffff")
+                rgb: utils.get_color_from_hex("#f5f5f5")
             Rectangle:
                 size: self.size
                 pos: self.pos
         
         ThemedImageButton:
-            source: "./data/menu1.png"
+            source: "./data/menub.png"
             pos: '24dp', '16dp'
         
         ThemedImageButton:
-            source: "./data/user.png"
+            source: "./data/userb.png"
             pos: '96dp', '16dp'
         
         ThemedImageButton:
-            source: "./data/chat.png"
-            size_hint: None, None
-            width: '28dp'
-            height: '28dp'
+            source: "./data/chatb.png"
             pos: '166dp', '14dp'
         
         ThemedImageButton:
-            source: "./data/tips.png"
+            source: "./data/tipsb.png"
             pos: '240dp', '16dp'
         
         ThemedImageButton:
-            source: "./data/location.png"
+            source: "./data/locationb.png"
             pos: '312dp', '16dp'
+    
+    ScreenManage:
+        id: screenmanage
+        size_hint: None, None
+        pos: ('0dp', '56dp') if self.current is 'Home' else ('0dp', '0dp')
+        width: '360dp'
+        height: '640dp'  # if self.current is 'Home' else '640dp'
     """)
